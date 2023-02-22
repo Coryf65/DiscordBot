@@ -1,5 +1,6 @@
 using DiscordBot;
 using DSharpPlus;
+using DSharpPlus.SlashCommands;
 
 IHost host = Host.CreateDefaultBuilder(args)
 	.ConfigureServices((builder, services) =>
@@ -16,6 +17,14 @@ IHost host = Host.CreateDefaultBuilder(args)
 				TokenType = TokenType.Bot,
 				Intents = DiscordIntents.AllUnprivileged
 			});
+
+			var slash = discordClient.UseSlashCommands(new SlashCommandsConfiguration
+			{
+				Services = serviceProvider
+			});
+
+			slash.RegisterCommands<CoryTextCommands>();
+
 			return discordClient;
 		});
 		services.AddHostedService<Worker>();
