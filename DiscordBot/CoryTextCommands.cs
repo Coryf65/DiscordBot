@@ -3,6 +3,8 @@ using DSharpPlus.SlashCommands;
 
 namespace DiscordBot;
 
+// "/test1 status"
+// "description 'Gets the current server status'"
 [SlashCommandGroup("test1", "test description")]
 public class CoryTextCommands : ApplicationCommandModule
 {

@@ -6,7 +6,20 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-DiscordBot-5668d82d-60a0-4525-84de-156df2ca5e6f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <Title>RoboCory</Title>
+    <Authors>Cory Fabian</Authors>
+    <Product>RoboCory</Product>
+    <Description>A Discord Bot to run on my Discord Server</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DSharpPlus" Version="4.3.0" />
