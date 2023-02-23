@@ -1,4 +1,5 @@
 ﻿using DSharpPlus;
+using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 
 namespace DiscordBot;
@@ -19,6 +20,7 @@ public class CoryTextCommands : ApplicationCommandModule
 		_discordClient = discordClient;
 	}
 
+	[SlashCommand("Hello", "A friendly greeting")]
 	public async Task Hello(InteractionContext context)
 	{
 		await context.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new()
@@ -31,7 +33,7 @@ public class CoryTextCommands : ApplicationCommandModule
 
 		// edit the response
 		await context.EditResponseAsync(new DSharpPlus.Entities.DiscordWebhookBuilder()
-			.WithContent("Howdy Doody 👋 \nHow are you?"));
+			.WithContent($"Howdy Doody 👋 \nHow are you? {DiscordEmoji.FromName(_discordClient, ":thinking:")}"));
 	}
 
 	[SlashCommand("status", "Get the current server status")]
@@ -59,6 +61,30 @@ public class CoryTextCommands : ApplicationCommandModule
 		await context.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new()
 		{
 			Content = $"Server ip: {ip}"
+		});
+	}
+
+	[SlashCommand("roll6", "Roll a Number between 1 - 6")]
+	public async Task Roll6(InteractionContext context)
+	{
+		int diceRoll = new Random(651651).Next(1, 6);
+		// var (ip, domain) = await minecraftServer.GetConnectionInformation();
+
+		await context.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new()
+		{
+			Content = $"Rolled a {diceRoll}"
+		});
+	}
+
+	[SlashCommand("doodle", "Roll a Number between 1 - 6")]
+	public async Task SpongeGify(InteractionContext context)
+	{
+		int diceRoll = new Random(651651).Next(1, 6);
+		// var (ip, domain) = await minecraftServer.GetConnectionInformation();
+
+		await context.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new()
+		{
+			Content = $"/giphy spongebob"
 		});
 	}
 }
