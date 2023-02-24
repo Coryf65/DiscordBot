@@ -14,6 +14,9 @@ Runs in a Linux Docker Container, you will need to add api token and start setup
 
 ## Commands
 
+Some exmaples of commands you call do [here](https://dsharpplus.github.io/DSharpPlus/articles/commands/intro.html)
+Command Help Custom Formatting [here](https://dsharpplus.github.io/DSharpPlus/articles/commands/help_formatter.html)
+
 - all current commands and planned ones...
 
 > TODO...

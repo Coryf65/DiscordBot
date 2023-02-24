@@ -11,9 +11,7 @@ public class CoryTextCommands : ApplicationCommandModule
 {
 	private ILogger<CoryTextCommands> _logger;
 	private DiscordClient _discordClient;
-	// private readonly MinecarftServer minecraftServer;
 
-	// inject minecraft server here
 	public CoryTextCommands(ILogger<CoryTextCommands> logger, DiscordClient discordClient)
 	{
 		_logger = logger;
@@ -28,11 +26,8 @@ public class CoryTextCommands : ApplicationCommandModule
 			Content = "Howdy Doody 👋"
 		});
 
-		// do something
-		// await minecraftServer.StartAsync();
-
 		// edit the response
-		await context.EditResponseAsync(new DSharpPlus.Entities.DiscordWebhookBuilder()
+		await context.EditResponseAsync(new DiscordWebhookBuilder()
 			.WithContent($"Howdy Doody 👋 \nHow are you? {DiscordEmoji.FromName(_discordClient, ":thinking:")}"));
 	}
 
@@ -48,7 +43,6 @@ public class CoryTextCommands : ApplicationCommandModule
 			Content = $"Server status is {status}"
 		});
 
-		// test this
 		//await context.CreateResponseAsync($"Status: {status}");
 	}
 
@@ -64,11 +58,10 @@ public class CoryTextCommands : ApplicationCommandModule
 		});
 	}
 
-	[SlashCommand("roll6", "Roll a Number between 1 - 6")]
-	public async Task Roll6(InteractionContext context)
+	[SlashCommand("roll", "Roll a Number")]
+	public async Task Roll6(InteractionContext context, int min, int max)
 	{
-		int diceRoll = new Random(651651).Next(1, 6);
-		// var (ip, domain) = await minecraftServer.GetConnectionInformation();
+		int diceRoll = new Random().Next(min, max);
 
 		await context.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new()
 		{
@@ -76,15 +69,27 @@ public class CoryTextCommands : ApplicationCommandModule
 		});
 	}
 
-	[SlashCommand("doodle", "Roll a Number between 1 - 6")]
-	public async Task SpongeGify(InteractionContext context)
-	{
-		int diceRoll = new Random(651651).Next(1, 6);
-		// var (ip, domain) = await minecraftServer.GetConnectionInformation();
+	//[SlashCommand("help", "Get all commands? maybe more info on a command?")]
+	//public async Task Help(InteractionContext context)
+	//{
+	//	await context.CreateResponseAsync("no");
+	//}
 
-		await context.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, new()
-		{
-			Content = $"/giphy spongebob"
-		});
-	}
+	//[SlashCommand("gif", "send gif test")]
+	//public async Task Gif(InteractionContext context)
+	//{
+	//	await context.CreateResponseAsync(embed: new DiscordEmbedBuilder { ImageUrl = "https://i.giphy.com/media/irBHYSZxbUifTxTgBL/200w.webp" }.Build(), false);
+	//}
+
+	//[SlashCommand("purgeChat", "Roll a Number between 1 - 6")]
+	//public async Task PurgeChat(InteractionContext context, uint amount)
+	//{
+	//	const int delay = 5000;
+	//	var messages = await context.Channel.GetMessagesAsync((int)amount + 1);
+
+	//	await context.CreateResponseAsync($"Purge starting... This message will self destruct in {delay / 1000} seconds.");
+	//	await Task.Delay(delay);
+
+	//	await context.Channel.DeleteMessagesAsync(messages);
+	//}
 }
