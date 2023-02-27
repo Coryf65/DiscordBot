@@ -1,6 +1,9 @@
 using DiscordBot;
+using DiscordBot.BotInfo;
 using DSharpPlus;
 using DSharpPlus.SlashCommands;
+
+const ulong GUILD_ID = 253627388754264065;
 
 IHost host = Host.CreateDefaultBuilder(args)
 	.ConfigureServices((builder, services) =>
@@ -23,7 +26,8 @@ IHost host = Host.CreateDefaultBuilder(args)
 				Services = serviceProvider
 			});
 
-			slash.RegisterCommands<CoryTextCommands>();
+			slash.RegisterCommands<CoryTextCommands>(guildId: GUILD_ID);
+			slash.RegisterCommands<Info>(guildId: GUILD_ID);
 
 			return discordClient;
 		});
