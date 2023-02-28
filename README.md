@@ -21,3 +21,9 @@ Command Help Custom Formatting [here](https://dsharpplus.github.io/DSharpPlus/ar
 - all current commands and planned ones...
 
 > TODO...
+
+### Notes
+
+Allowed parameters to the slash function commands are...
+
+- string, long, bool, double, TimeSpan?, DiscordChannel, DiscordUser, DiscordRole, DiscordEmoji, DiscordAttachment, SnowflakeObject, or an Enum
