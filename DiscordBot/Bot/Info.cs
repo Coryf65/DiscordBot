@@ -13,7 +13,7 @@ internal class Info : ApplicationCommandModule
 	{
 		Process[] Processes = Process.GetProcesses();
 		long tickCountMs = Environment.TickCount64;
-		var uptime = TimeSpan.FromMilliseconds(tickCountMs);
+		TimeSpan uptime = TimeSpan.FromMilliseconds(tickCountMs);
 
 		DiscordEmbedBuilder embed = new()
 		{
