@@ -8,9 +8,10 @@ Will contain some useful info for us like Rolls, Server info, Games, and other t
 
 Runs in a Linux Docker Container, you will need to add api token and start setup in Discord [here](https://discord.com/developers/docs/getting-started)
 
-- [Discord API](https://discord.com/developers/docs/intro)
-- [DSharpPlus](https://github.com/DSharpPlus/DSharpPlus)
-- [DSharp Slash Commands](https://dsharpplus.github.io/DSharpPlus/articles/slash_commands.html)
+- [Discord API](https://discord.com/developers/docs/intro) allows cool bots and other things
+- [DSharpPlus](https://github.com/DSharpPlus/DSharpPlus) used to interact with Discord API with C#
+- [DSharp Slash Commands](https://dsharpplus.github.io/DSharpPlus/articles/slash_commands.html) The newer commands way to interact with /command
+- [Serilog](https://dsharpplus.github.io/DSharpPlus/articles/slash_commands.html) used for Logging
 
 ## Commands
 
